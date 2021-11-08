@@ -2,5 +2,46 @@
 
 _Typo here, typo there, typos everywhere._
 
+## November 2021
+
+### HHVM version support
+
+_TL;DR: Upgrade to hhvm 4.102+. Support for hhvm 4.102 lasts until March 2022 and `HTL\` support lasts at least until March and may be extended to July 1st 2022 if the breaking changes in hhvm 4.152+ (the next lts) allow for it._
+
+The latest hhvm lts release [hhvm version 4.128](https://hhvm.com/blog/2021/09/21/hhvm-4.128.html) is available for everyone. This means that [hhvm version 4.80](https://hhvm.com/blog/2020/10/21/hhvm-4.80.html) has officially lost support. In the [September 2021 blogpost](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-09.md) I congratulated the hhvm team with the stability of the platform in recent months. It is still possible to write portable code for the hhvm 4.72-4.128 range. Some recent developments in [hhvm version 4.129](https://hhvm.com/blog/2021/09/28/hhvm-4.129.html) have set a course away from the [< hhvm version 4.93](https://hhvm.com/blog/2021/01/19/hhvm-4.93.html) range. Explicit coeffects are slowly becoming the norm in built-in types. It is already not possible to override `RuntimeException->getMessage()[]: string`, `LogicException->getMessage()[]: string` in a manner that is accepted by both [hhvm version 4.92](https://hhvm.com/blog/2021/01/12/hhvm-4.92.html) and [hhvm version 4.129](https://hhvm.com/blog/2021/09/28/hhvm-4.129.html). 4.92 does not understand with `public function getMessage()[]: string` means, whereas 4.129 requires the coeffects to be explicitly declared pure `[]`. This has not been a problem for any packages in the `HTL\` family just yet. It is probable / likely to become a problem in the not so distant future.
+
+**Support for [hhvm version 4.72](https://hhvm.com/blog/2020/08/26/hhvm-4.72.html) through [hhvm version 4.101](https://hhvm.com/blog/2021/03/16/hhvm-4.101.html) will be removed from the `HTL\` family of packages soon!**
+
+Support will be dropped (whichever comes first):
+ - When current functionality can not be maintained portably between 4.72 and nightly
+ - At January 1st 2022
+
+All packages will receive a bump to their `dot-y` version. So [sgml-stream](https://github.com/hershel-theodore-layton/sgml-stream) will have `v0.5.0` released when support for older hhvm versions is dropped. `v0.4.x` remains available for those unable to upgrade to `v0.5.x`. New features will NOT be added to `v0.4.x`, but patches / bug fixes / security fixes from the `v0.5.x` series that apply to the `v0.4.x` series will be applied and released. Issues that specifically affect `v0.4.x` can be patched when found. I expect use of `v0.4.x` to decline rapidly, so the chances of issues being found will be low.
+
+_Why no support for 4.93-4.101? Explicit coeffect syntax is available in 4.93._
+
+I'd like to change the internal API of `HTL\SGMLStream\ElementWithOpen...->tagName` from a property to an abstract constant as announced in the [September 2021 blogpost](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-09.md). This requires dropping support for everything below [hhvm version 4.97](https://hhvm.com/blog/2021/02/16/hhvm-4.97.html). Having support for 4.97-4.101 extends the support range by only four minor releases. I believe it to be irresponsible to run an hhvm version that [lost support in July 2021](https://hhvm.com/blog/2021/07/07/hhvm-4.117.html) in 2022. If your application runs on hhvm 4.97, you should have no issue upgrading to 4.102. The breaking changes of hhvm 4.98-4.101 are extremely minor. The most impactful changes are `nothing` not being an enforceable type and `array_slice()` behaving differently with intish keys. Please upgrade to 4.102.
+
+Facebook support for [hhvm version 4.102](https://hhvm.com/blog/2021/03/29/extending-hhvm-4.102-support.html) is expected to last until [March 2022](https://docs.hhvm.com/hhvm/installation/release-schedule). The `HTL\` family of packages intends to support [hhvm version 4.102](https://hhvm.com/blog/2021/03/23/hhvm-4.102.html) for at least as long. This should give everyone ample time to get onto [hhvm version 4.128](https://hhvm.com/blog/2021/09/21/hhvm-4.128.html). I intend to support [hhvm version 4.102](https://hhvm.com/blog/2021/03/23/hhvm-4.102.html) until July 1st 2022 or until a breaking change in hhvm 4.152+ makes 4.102 code not portable.
+
+### New packages are available
+
+The following package is being promoted from pre-release to stable:
+
+[static-type-assertion-code-generator](https://github.com/hershel-theodore-layton/static-type-assertion-code-generator)
+
+This library generates type assertion code for use in 100% strictly typed Hack codebases. Users of `Facebook\TypeAssert\` may find this library particularly interesting. Both the generated code and the package are free of `HH_FIXME` suppression comments. It has support for sound `newtype` assertions using user-provided functions. The typechecker can see the codegen, so no unsoundness can slip through. The generated code is efficient and only relies on built-in operations. This means applications don't need static-type-assertion-code-generator to be deployed in production and libraries can depend on static-type-assertion-code-generator without adding a dependency for downstream consumers. If `Facebook\TypeAssert\` is faster for your data or type, please file an issue on github.
+
+The following package is newly available:
+
+[lecof-router](https://github.com/hershel-theodore-layton/lecof-router)
+
+This library is a very minimal implementation for routing requests. The syntax is declarative without depending on an explicit build step. You can extend the library by adding new components that implement interfaces published in [lecof-router-interfaces](https://github.com/hershel-theodore-layton/lecof-router-interfaces). If you have API feedback before `v0.2` is released, please file an issue on github.
+
+### Enjoy the festivities
+
+I have been writing new posts around every two months. I am expecting to title the next post `January 2022`. Enjoy the festive month and happy new year!
+
+
 ## [September 2021](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-09.md)
 ## [July 2021](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-07.md)
