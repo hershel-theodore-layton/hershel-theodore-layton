@@ -14,7 +14,7 @@ The latest hhvm lts release [hhvm version 4.128](https://hhvm.com/blog/2021/09/2
 
 Support will be dropped (whichever comes first):
  - When current functionality can not be maintained portably between 4.72 and nightly
- - At January 1st 2022
+ - On January 1st 2022
 
 All packages will receive a bump to their `dot-y` version. So [sgml-stream](https://github.com/hershel-theodore-layton/sgml-stream) will have `v0.5.0` released when support for older hhvm versions is dropped. `v0.4.x` remains available for those unable to upgrade to `v0.5.x`. New features will NOT be added to `v0.4.x`, but patches / bug fixes / security fixes from the `v0.5.x` series that apply to the `v0.4.x` series will be applied and released. Issues that specifically affect `v0.4.x` can be patched when found. I expect use of `v0.4.x` to decline rapidly, so the chances of issues being found will be low.
 
