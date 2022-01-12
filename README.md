@@ -25,7 +25,13 @@ If you are currently using [hhvm version 4.102](https://hhvm.com/blog/2021/03/23
 
 ### New "hhvm 4.102+ only" versions of HTL packages
 
-_I will include a list of release notes once all releases have been made._
+ - [sgml-stream-interfaces@0.6.0 Diopside](https://github.com/hershel-theodore-layton/sgml-stream-interfaces/releases/tag/v0.6.0)
+ - [sgml-stream@0.6.0 Diopside](https://github.com/hershel-theodore-layton/sgml-stream/releases/tag/v0.6.0)
+ - [html-stream-namespaced@0.6.0 Diopside](https://github.com/hershel-theodore-layton/html-stream-namespaced/releases/tag/v0.6.0)
+ - [html-stream-non-namespaced@0.6.0 Diopside](https://github.com/hershel-theodore-layton/html-stream-non-namespaced/releases/tag/v0.6.0)
+ - [lecof-router-interfaces@0.2.0 Oxygen](https://github.com/hershel-theodore-layton/lecof-router-interfaces/releases/tag/v0.2.0)
+ - [lecof-router@0.2.1 Oxygen - patch 1](https://github.com/hershel-theodore-layton/lecof-router/releases/tag/v0.2.1)
+ - [static-type-assertion-code-generator@0.3.0 Ozone](https://github.com/hershel-theodore-layton/static-type-assertion-code-generator/releases/tag/v0.3.0)
 
 ### Stability of SGMLStream
 
