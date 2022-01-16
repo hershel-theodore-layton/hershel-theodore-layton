@@ -41,14 +41,15 @@ If you are currently using [hhvm version 4.102](https://hhvm.com/blog/2021/03/23
 
 HTL packages have versions in the range `0.0.x`, `0.2.x` ... `0.99.x`. (Version `0.1` is always skipped.) These releases have nicknames:
 
-| Version | Nickname    |
-|--------:|:------------|
-| v0.0.x  | Ho, Ho, Ho  |
-| v0.2.x  | Oxygen      |
-| v0.3.x  | Ozone       |
-| v0.4.x  | Magnetite   |
-| v0.5.x  | Sillimanite |
-| v0.6.x  | Diopside    |
+| Version | Nickname     |
+|--------:|:-------------|
+| v0.0.x  | Ho, Ho, Ho   |
+| v0.2.x  | Oxygen       |
+| v0.3.x  | Ozone        |
+| v0.4.x  | Magnetite    |
+| v0.5.x  | Sillimanite  |
+| v0.6.x  | Diopside     |
+| v0.7.x  | Hardystonite |
 
 `v0.0.x` is named `Ho, Ho, Ho`, because triple zero (or triple oh) can be read as "O O O". The release nickname is meant to warn you that this package is experimental. It asks you to stop and think for a while whether you want to use this in production yet.
 
@@ -56,7 +57,7 @@ HTL packages have versions in the range `0.0.x`, `0.2.x` ... `0.99.x`. (Version 
 
 All other release names in the `v0.x` series are chemicals, where the number of oxygen atoms matches the version number. `0.2` looks like O<sub>2</sub>, `0.3` looks like O<sub>3</sub> and so forth.
 
-_Chemical formula's sourced from Wikipedia._ `v0.2` [Oxygen](https://en.wikipedia.org/wiki/Oxygen) O<sub>2</sub>, `v0.3` [Ozone](https://en.wikipedia.org/wiki/Ozone) O<sub>3</sub>, `v0.4` [Magnetite](https://en.wikipedia.org/wiki/Magnetite) Fe<sup>2+</sup>Fe<sup>3+</sup><sub>2</sub>O<sub>4</sub>, `v0.5` [Sillimanite](https://en.wikipedia.org/wiki/Sillimanite) Al<sub>2</sub>SiO<sub>5</sub>, and `v0.6` [Diopside](https://en.wikipedia.org/wiki/Diopside) MgCaSi<sub>2</sub>O<sub>6</sub>.
+_Chemical formula's sourced from Wikipedia._ `v0.2` [Oxygen](https://en.wikipedia.org/wiki/Oxygen) O<sub>2</sub>, `v0.3` [Ozone](https://en.wikipedia.org/wiki/Ozone) O<sub>3</sub>, `v0.4` [Magnetite](https://en.wikipedia.org/wiki/Magnetite) Fe<sup>2+</sup>Fe<sup>3+</sup><sub>2</sub>O<sub>4</sub>, `v0.5` [Sillimanite](https://en.wikipedia.org/wiki/Sillimanite) Al<sub>2</sub>SiO<sub>5</sub>, `v0.6` [Diopside](https://en.wikipedia.org/wiki/Diopside) MgCaSi<sub>2</sub>O<sub>6</sub>, and `v0.7` [Hardystonite](https://en.wikipedia.org/wiki/Hardystonite) Ca<sub>2</sub>ZnSi<sub>2</sub>O<sub>7</sub>.
 
 ## [SGMLStream Sillimanite Release](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-release-announcement-sgml-stream-sillimanite.md)
 ## [November 2021](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-11.md)
