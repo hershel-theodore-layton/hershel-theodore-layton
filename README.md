@@ -27,6 +27,73 @@ All code in the `HTL\` family of packages does not specify a capabilities list. 
 
 Non final methods can not simply add an empty capability set, since your code may not specify a capability set at all. Breaking changes like this are difficult to ease in. These methods will retain their `[defaults]` capability for now. In a future release, we may introduce context constants to allow both `[defaults]`, `[subset of defaults]`, and `[]` implementations to exist in a typechecker queryable manner.
 
+### SgmlStream has been open for a year
+
+I almost forgot to mention this. The [first release of SGMLStream](https://github.com/hershel-theodore-layton/sgml-stream/releases/tag/v0.2.0) was made in March of 2021. SGMLStream has been relatively stable in this year. `$this->tagName` was removed in favor of `static::TAG_NAME`. This was signalled for removal in advance and the upgrade path was clear. **A breaking change is expected!**
+
+SGMLStream has one mechanism for moving arbitrary data through a tree. This mechanism is [Flow](https://github.com/hershel-theodore-layton/sgml-stream/blob/v0.2.0/src/element/SimpleUserElement.hack#L21), which moves data from ancestor to descendant.
+
+```HTML
+<T1 data-flows-to="2,3,4,5,6">
+  <T2 data-flows-to="3,4">
+    <T3 data-flows-to="null"/>
+    <T4 data-flows-to="null"/>
+  </T2>
+  <T5 data-flows-to="6">
+    <T6 data-flows-to="null"/>
+  </T5>
+</T1>
+```
+
+It was possible to use a mutable object to pass data between elements that were not descendants, but this was unstructured and created an opening for bugs that depended on the order of execution.
+
+```HACK
+final xhp class T6 extends SimpleUserElementWithWritableFlow {
+  <<__Override>>
+  final protected function compose(WritableFlow $flow): Streamable {
+    $mut = $flow->get('!MUTABLE_REFERENCE_TO_VEC_OF_INT') as MyMutableVecOfInt;
+    $mut->value[] = 42;
+    return <div class="t6" data-vec-so-far={Str\join($mut->value, ', ')} />;
+  }
+}
+```
+
+The value of `data-vec-so-far` depends on the order of execution of T3 and T6. If both T2 and T5 are AsynchronousUserElements. The value is not predictable.
+
+There are use cases for a data stream which flows in document order. A Flow object for which the order of writes is specified to be the same as the document order. For example, registering some javascript that needs to run in T1-5 and writing out this javascript in a `<script></script>` tag in T6. The javascript must be written in the same order on each render, so a `!MUTABLE_REFERENCE_TO_VEC_OF_STRING` would not be desired. There is already an ordered execution of [`->feedBytesToConsumerAsync()`](https://github.com/hershel-theodore-layton/sgml-stream/blob/v0.7.1/src/snippet/ComposableSnippet.hack#L50). This method could get the responsibilities of propagating a Flow object. The exact interface and method of this interaction has not yet been though out.
+
+The [Magnetite v0.4.0 release](https://github.com/hershel-theodore-layton/sgml-stream/releases/tag/v0.4.0) introduced the [DissolableUserElement](https://github.com/hershel-theodore-layton/sgml-stream/blob/v0.4.0/src/element/DissolvableElement.hack). This element can not have access to the Flow, since it is composed in the [`->placeIntoSnippetStream()`](https://github.com/hershel-theodore-layton/sgml-stream/blob/v0.4.0/src/element/DissolvableElement.hack#L41) step instead of the `->primeAsync()` step. This is not an issue for simple elements like `<PictureTag webp="file.webp" jpg="file.jpg" />`. Some elements need access to information that is global to the document, f.e. has-admin-permissions. This information is already known at the `->placeIntoSnippetStream()` step, but there was no way to provide this information. A third, read-only Flow could be passed through `->placeIntoSnippetStream(SnippedStream, Flow)` to allow `<MyMenu />` to access document global information, like the permissions of the user, without needing to be a `SimpleUserElement`.
+
+These two extra mechanisms would complete story about data flowing through an SGMLStream tree:
+
+Classic Flow:
+```
+This direction
+--------------->
+<T1>
+  <T2>
+    <T3 />
+  </T2>
+  <T4 />
+</T1>
+```
+
+Document order Flow:
+```
+This direction
+|<T1>
+|  <T2>
+|    <T3 />
+|  </T2>
+|  <T4 />
+|</T1>
+V
+```
+
+Read only document wide Flow to meat use cases where there is no direction needed (information known in advance).
+
+For obvious reasons, flows in the `>` (to descendants) and `V` (to successors) directions are the only ones that we can provide whilst retaining SGMLStreams signature ability. Flows in the `<` (to ancestors) and `^` (to predecessors) direction are not something worth building, since they would inhibit streaming.
+
 ## [January 2022](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-01.md)
 ## [SGMLStream Sillimanite Release](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-release-announcement-sgml-stream-sillimanite.md)
 ## [November 2021](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2021-11.md)
