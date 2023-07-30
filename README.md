@@ -2,18 +2,7 @@
 
 _Typo here, typo there, typos everywhere._
 
-## May 2022
-
-### SGMLStream flows progress
-
-In [the March 2022 post](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-03.md#sgmlstream-has-been-open-for-a-year), I announced plans to extend SGMLStream's Flow functionality by adding two more FlowKinds. In order to support these new Flows, many signatures had to be changed. This made a speedy adoption more difficult. I intend to migrate my own uses first to catch painful migration headaches before release.
-
-The next version of SGMLStream will be `v1.0`. This release will include breaking changes. Steps will be taken to minimize the amount of changes required to adopt this newer version of SGMLStream. Even so, it will not be possible to write a full application that is version agnostic. The current goal is the allow components written for `v0.x` to work on `v1.x`. Anything more than that is a nice-to-have, rather than an explicit goal.
-
-### HHVM version support
-
-A `HTL\` blog post isn't complete without a mention of hhvm version support. `HTL\` support for [hhvm version 4.102](https://hhvm.com/blog/2021/03/23/hhvm-4.102.html) is intended to last until the 1st of July 2022. The hhvm team does not support this version anymore. If you are currently running 4.127 or older and upgrading is a difficult process for you, I urge you to start the process of upgrading to [hhvm version 4.128](https://hhvm.com/blog/2021/09/21/hhvm-4.128.html). Unlike in [January 2022](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-01.md) there aren't any hhvm 4.103+ exclusive features I would like to use immediately after dropping support. I still urge you to upgrade, to receive the best from hhvm in terms of typechecker improvements, language features, performance improvements, and most importantly, security patches.
-
+## [May 2022](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-05.md)
 ## [March 2022](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-03.md)
 ## [January 2022](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-01.md)
 ## [SGMLStream Sillimanite Release](https://github.com/hershel-theodore-layton/hershel-theodore-layton/blob/master/2022-release-announcement-sgml-stream-sillimanite.md)
