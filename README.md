@@ -27,9 +27,9 @@ _Now back to `HTL\` news for a change._
 
 ### Improvements to static-type-assertion-code-generator
 
-I am proud to announce v1.0 of this library. I plan to cut / tag a release this weekend, but you can already get it from composer by using a `dev-master` version constraint.
+I am proud to announce v1.0 of this library. [release notes](https://github.com/hershel-theodore-layton/static-type-assertion-code-generator/releases/tag/v1.0.1}
 
-What broke? _[A link to the release notes will placed here when the release is out.]_
+What broke?
 
 _First and foremost, this version is 90% backwards compatible with the previous version._
 
