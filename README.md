@@ -27,7 +27,7 @@ _Now back to `HTL\` news for a change._
 
 ### Improvements to static-type-assertion-code-generator
 
-I am proud to announce v1.0 of this library. [release notes](https://github.com/hershel-theodore-layton/static-type-assertion-code-generator/releases/tag/v1.0.1)
+I am proud to announce v1.0 of this library. [release notes](https://github.com/hershel-theodore-layton/static-type-assertion-code-generator/releases/tag/v1.0.0)
 
 What broke?
 
