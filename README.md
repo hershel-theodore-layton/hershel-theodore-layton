@@ -33,10 +33,10 @@ I have been hard at work reimplementing a project which I started some time in H
 I don't want to spoil anything, but this will make a whole lot of tooling suddenly...
 
 ```
-Parsing: ../vendor/hhvm/hhast with hhast in from cold cli took 1539.36 megabytes at peak.
-Parsing: ../vendor/hhvm/hhast with hhast in repoauth mode took 1063.71 megabytes at peak.
-Parsing: ../vendor/hhvm/hhast with xyzzy in from cold cli took 57.5205 megabytes at peak.
-Parsing: ../vendor/hhvm/hhast with xyzzy in repoauth mode took 29.2615 megabytes at peak.
+Parsing: ../vendor/hhvm/hhast with hhast from command line took 1539.36 megabytes at peak.
+Parsing: ../vendor/hhvm/hhast with hhast in repo auth mode took 1063.71 megabytes at peak.
+Parsing: ../vendor/hhvm/hhast with xyzzy from command line took 57.5205 megabytes at peak.
+Parsing: ../vendor/hhvm/hhast with xyzzy in repo auth mode took 29.2615 megabytes at peak.
                                    ^^^^^ https://www.rfc-editor.org/rfc/rfc3092.txt
 ```
 
