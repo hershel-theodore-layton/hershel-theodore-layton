@@ -40,7 +40,7 @@ Parsing: ../vendor/hhvm/hhast with xyzzy in repo auth mode took 29.2615 megabyte
                                    ^^^^^ https://www.rfc-editor.org/rfc/rfc3092.txt
 ```
 
-I am looking forward to the release in January or March at the latest. It will probably go live on Github a couple weeks before a proper release. So if this excites you, keep an eye out.
+I am looking forward to the release in January or March at the latest. It will probably [go live on Github](https://github.com/hershel-theodore-layton/portable-hack-ast) a couple weeks before a proper release. So if this excites you, keep an eye out.
 
 ### Enjoy the festivities
 
