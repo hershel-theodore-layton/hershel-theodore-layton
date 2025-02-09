@@ -10,7 +10,8 @@ The latest version [Gold - patch 3](https://github.com/hershel-theodore-layton/d
 of the vscode extension [DeadSimpleLintServerIntegration](https://github.com/hershel-theodore-a-layton/dead-simple-lint-server-integration) includes autofix support.
 Autofixes from the linters can now be applied with a Code Action.
 
-Image1 Image2
+![Screenshot from 2024-12-05 22-07-43](https://github.com/user-attachments/assets/7846b036-6294-4a75-8e02-7ccc703c73dc)
+![Screenshot from 2024-12-05 22-07-53](https://github.com/user-attachments/assets/bcef8e9a-5885-46e9-952c-7f6f6961a14b)
 
 ### Linter Autofix Improvements
 
